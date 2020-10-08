@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>mc_IWP_cloud_opt_pathCalc - ARTS built-in documentation server</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div id="navbar"><div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;>>&nbsp;<a href="../methods.html">Methods</a>&nbsp;>>&nbsp;mc_IWP_cloud_opt_pathCalc</div>
+<div class="goto">Go to: <a href="../groups/index.html">Groups</a>&nbsp;-&nbsp;<a href="../variables/index.html">Variables</a>&nbsp;-&nbsp;<a href="index.html">Methods</a>&nbsp;-&nbsp;<a href="../agendas/index.html">Agendas</a></div></div>
+<div class="content">
+<h1>ARTS built-in documentation server</h1>
+<h2>Workspace Method mc_IWP_cloud_opt_pathCalc</h2>
+<h3>Description</h3>
+<pre>
+Calculates the FOV averaged ice water path and cloud optical path
+for a given viewing direction
+
+</pre>
+
+<p><b>Authors: </b>Cory Davis
+<h3>Synopsis</h3>
+<p><table><tr><td>mc_IWP_cloud_opt_pathCalc(&nbsp;</td><td><a href="../variables/mc_IWP.html">mc_IWP</a>, <a href="../variables/mc_cloud_opt_path.html">mc_cloud_opt_path</a>, <a href="../variables/mc_IWP_error.html">mc_IWP_error</a>, <a href="../variables/mc_cloud_opt_path_error.html">mc_cloud_opt_path_error</a>, <a href="../variables/mc_iteration_count.html">mc_iteration_count</a>, <a href="../variables/mc_antenna.html">mc_antenna</a>, <a href="../variables/sensor_pos.html">sensor_pos</a>, <a href="../variables/sensor_los.html">sensor_los</a>, <a href="../agendas/ppath_step_agenda.html">ppath_step_agenda</a>, <a href="../variables/p_grid.html">p_grid</a>, <a href="../variables/lat_grid.html">lat_grid</a>, <a href="../variables/lon_grid.html">lon_grid</a>, <a href="../variables/r_geoid.html">r_geoid</a>, <a href="../variables/z_surface.html">z_surface</a>, <a href="../variables/z_field.html">z_field</a>, <a href="../variables/t_field.html">t_field</a>, <a href="../variables/vmr_field.html">vmr_field</a>, <a href="../variables/cloudbox_limits.html">cloudbox_limits</a>, <a href="../variables/pnd_field.html">pnd_field</a>, <a href="../variables/scat_data_mono.html">scat_data_mono</a>, <a href="../variables/particle_masses.html">particle_masses</a>, <a href="../variables/mc_seed.html">mc_seed</a>, max_iter )</td></tr></table>
+<h3>Variables</h3>
+<table>
+<tr><td>OUT</td><td class="right"><a href="../variables/mc_IWP.html">mc_IWP</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>The ice water path integrated over the field of view </td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/mc_cloud_opt_path.html">mc_cloud_opt_path</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>The cloud optical path integrated over the field of view.</td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/mc_IWP_error.html">mc_IWP_error</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>The standard error of ice water path integrated over the field of view </td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/mc_cloud_opt_path_error.html">mc_cloud_opt_path_error</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>Standad error in the cloud optical path integrated over the field of view.</td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/mc_iteration_count.html">mc_iteration_count</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Counts the number of iterations (or photons) used in the MC  scattering algorithm.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/mc_antenna.html">mc_antenna</a></td><td>(<a href="../groups/MCAntenna.html">MCAntenna</a>)</td><td>Antenna pattern description for dedicated MC calculaions.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/sensor_pos.html">sensor_pos</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>The sensor position for each measurement block.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/sensor_los.html">sensor_los</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>The sensor line-of-sight (LOS) for each measurement block.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/ppath_step_agenda.html">ppath_step_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/p_grid.html">p_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The pressure grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/lat_grid.html">lat_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The latitude grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/lon_grid.html">lon_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The longitude grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/r_geoid.html">r_geoid</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Geoid radius.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/z_surface.html">z_surface</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>The surface altitude.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/z_field.html">z_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>The field of geometrical altitudes.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/t_field.html">t_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>The field of atmospheric temperatures.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/vmr_field.html">vmr_field</a></td><td>(<a href="../groups/Tensor4.html">Tensor4</a>)</td><td>VMR field.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/cloudbox_limits.html">cloudbox_limits</a></td><td>(<a href="../groups/ArrayOfIndex.html">ArrayOfIndex</a>)</td><td>The limits of the cloud box.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/pnd_field.html">pnd_field</a></td><td>(<a href="../groups/Tensor4.html">Tensor4</a>)</td><td>Particle number density field.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/scat_data_mono.html">scat_data_mono</a></td><td>(<a href="../groups/ArrayOfSingleScatteringData.html">ArrayOfSingleScatteringData</a>)</td><td>Monochromatic single scattering data.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/particle_masses.html">particle_masses</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The mass of each particle type stored in a vector   Usage: Set by the user.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/mc_seed.html">mc_seed</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>The integer seed for the random number generator used by Monte Carlo methods.</td></tr>
+<tr><td>GIN</td><td class="right">max_iter</td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Maximum number of iterations.</td></tr>
+</table>
+</div>
+<div class="footer">Page generated by arts-2.0.49 - <a href="../doccheck.html">Check docs</a></div>
+
+</body>
+</html>

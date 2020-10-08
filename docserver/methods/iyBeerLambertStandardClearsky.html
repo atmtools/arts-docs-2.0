@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>iyBeerLambertStandardClearsky - ARTS built-in documentation server</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div id="navbar"><div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;>>&nbsp;<a href="../methods.html">Methods</a>&nbsp;>>&nbsp;iyBeerLambertStandardClearsky</div>
+<div class="goto">Go to: <a href="../groups/index.html">Groups</a>&nbsp;-&nbsp;<a href="../variables/index.html">Variables</a>&nbsp;-&nbsp;<a href="index.html">Methods</a>&nbsp;-&nbsp;<a href="../agendas/index.html">Agendas</a></div></div>
+<div class="content">
+<h1>ARTS built-in documentation server</h1>
+<h2>Workspace Method iyBeerLambertStandardClearsky</h2>
+<h3>Description</h3>
+<pre>
+Standard method for handling transmission measurements.
+
+Designed to be part of <a href="../agendas/iy_clearsky_agenda.html">iy_clearsky_agenda</a>. That is, only valid
+outside the cloudbox (no scattering or polarised absorption).
+
+This method works exactly as <a href="iyEmissionStandardClearsky.html">iyEmissionStandardClearsky</a>, but does
+add any emission. In fact, the latter method with <a href="../agendas/emission_agenda.html">emission_agenda</a>
+set to return zero would give exactly the same result as this WSM.
+For propagation paths above the surface, the result is the output
+of <a href="../agendas/iy_space_agenda.html">iy_space_agenda</a> times the (vector) transmission through the
+atmosphere (i.e. standard Beer-Lambert). 
+
+If the propagation paths intercepts with the surface, the surface
+variables are used as for <a href="iyEmissionStandardClearsky.html">iyEmissionStandardClearsky</a>, and 
+<a href="../variables/surface_emission.html">surface_emission</a> should probably be set to 0. Multiple-beams
+will be followed if <a href="../variables/surface_los.html">surface_los</a> has length &gt; 1.
+
+<a href="../variables/iy_aux.html">iy_aux</a> is not set.
+
+</pre>
+
+<p><b>Authors: </b>Patrick Eriksson
+<h3>Synopsis</h3>
+<p><table><tr><td>iyBeerLambertStandardClearsky(&nbsp;</td><td><a href="../variables/iy.html">iy</a>, <a href="../variables/iy_error.html">iy_error</a>, <a href="../variables/iy_error_type.html">iy_error_type</a>, <a href="../variables/iy_aux.html">iy_aux</a>, <a href="../variables/diy_dx.html">diy_dx</a>, <a href="../variables/iy_agenda_call1.html">iy_agenda_call1</a>, <a href="../variables/iy_transmission.html">iy_transmission</a>, <a href="../variables/rte_pos.html">rte_pos</a>, <a href="../variables/rte_los.html">rte_los</a>, <a href="../variables/jacobian_do.html">jacobian_do</a>, <a href="../variables/atmosphere_dim.html">atmosphere_dim</a>, <a href="../variables/p_grid.html">p_grid</a>, <a href="../variables/lat_grid.html">lat_grid</a>, <a href="../variables/lon_grid.html">lon_grid</a>, <a href="../variables/z_field.html">z_field</a>, <a href="../variables/t_field.html">t_field</a>, <a href="../variables/vmr_field.html">vmr_field</a>, <a href="../variables/wind_u_field.html">wind_u_field</a>, <a href="../variables/wind_v_field.html">wind_v_field</a>, <a href="../variables/wind_w_field.html">wind_w_field</a>, <a href="../variables/r_geoid.html">r_geoid</a>, <a href="../variables/z_surface.html">z_surface</a>, <a href="../variables/cloudbox_on.html">cloudbox_on</a>, <a href="../variables/cloudbox_limits.html">cloudbox_limits</a>, <a href="../variables/stokes_dim.html">stokes_dim</a>, <a href="../variables/f_grid.html">f_grid</a>, <a href="../variables/abs_species.html">abs_species</a>, <a href="../agendas/ppath_step_agenda.html">ppath_step_agenda</a>, <a href="../agendas/abs_scalar_gas_agenda.html">abs_scalar_gas_agenda</a>, <a href="../agendas/iy_clearsky_agenda.html">iy_clearsky_agenda</a>, <a href="../agendas/iy_space_agenda.html">iy_space_agenda</a>, <a href="../agendas/surface_prop_agenda.html">surface_prop_agenda</a>, <a href="../agendas/iy_cloudbox_agenda.html">iy_cloudbox_agenda</a>, <a href="../variables/jacobian_quantities.html">jacobian_quantities</a>, <a href="../variables/jacobian_indices.html">jacobian_indices</a> )</td></tr></table>
+<h3>Variables</h3>
+<table>
+<tr><td>OUT</td><td class="right"><a href="../variables/iy.html">iy</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Monochromatic pencil beam radiance spectrum.</td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/iy_error.html">iy_error</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Estimation of calculation errors in <a href="../variables/iy.html">iy</a>.</td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/iy_error_type.html">iy_error_type</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Characteristics of error values in <a href="../variables/iy_error.html">iy_error</a>.</td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/iy_aux.html">iy_aux</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Data auxilary to <a href="../variables/iy.html">iy</a>.</td></tr>
+<tr><td>OUT</td><td class="right"><a href="../variables/diy_dx.html">diy_dx</a></td><td>(<a href="../groups/ArrayOfTensor3.html">ArrayOfTensor3</a>)</td><td>Derivative of <a href="../variables/iy.html">iy</a> with respect to retrieval quantities.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/iy_error.html">iy_error</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Estimation of calculation errors in <a href="../variables/iy.html">iy</a>.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/iy_error_type.html">iy_error_type</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Characteristics of error values in <a href="../variables/iy_error.html">iy_error</a>.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/iy_aux.html">iy_aux</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Data auxilary to <a href="../variables/iy.html">iy</a>.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/diy_dx.html">diy_dx</a></td><td>(<a href="../groups/ArrayOfTensor3.html">ArrayOfTensor3</a>)</td><td>Derivative of <a href="../variables/iy.html">iy</a> with respect to retrieval quantities.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/iy_agenda_call1.html">iy_agenda_call1</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Flag to handle recursive calls of <a href="../agendas/iy_clearsky_agenda.html">iy_clearsky_agenda</a>  The agenda <a href="../agendas/iy_clearsky_agenda.html">iy_clearsky_agenda</a> can be used recursively and this flag is used to tell the methods inside the agenda which is the primary  call.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/iy_transmission.html">iy_transmission</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>Transmission to be included in <a href="../variables/iy.html">iy</a>.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/rte_pos.html">rte_pos</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>A geographical position for radiative transfer calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/rte_los.html">rte_los</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>A line-of-sight for radiative transfer calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/jacobian_do.html">jacobian_do</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Flag to activate jacobian calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/atmosphere_dim.html">atmosphere_dim</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>The atmospheric dimensionality (1-3).</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/p_grid.html">p_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The pressure grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/lat_grid.html">lat_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The latitude grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/lon_grid.html">lon_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The longitude grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/z_field.html">z_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>The field of geometrical altitudes.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/t_field.html">t_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>The field of atmospheric temperatures.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/vmr_field.html">vmr_field</a></td><td>(<a href="../groups/Tensor4.html">Tensor4</a>)</td><td>VMR field.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/wind_u_field.html">wind_u_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>Meridional (second horizontal wind) component field for 3D.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/wind_v_field.html">wind_v_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>Horizontal 1D, 2D or 3D wind components.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/wind_w_field.html">wind_w_field</a></td><td>(<a href="../groups/Tensor3.html">Tensor3</a>)</td><td>Vertical wind component field.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/r_geoid.html">r_geoid</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>Geoid radius.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/z_surface.html">z_surface</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>The surface altitude.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/cloudbox_on.html">cloudbox_on</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>Flag to activate the cloud box.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/cloudbox_limits.html">cloudbox_limits</a></td><td>(<a href="../groups/ArrayOfIndex.html">ArrayOfIndex</a>)</td><td>The limits of the cloud box.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/stokes_dim.html">stokes_dim</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>The dimensionality of the Stokes vector (1-4).</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/f_grid.html">f_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The frequency grid for monochromatic pencil beam calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_species.html">abs_species</a></td><td>(<a href="../groups/ArrayOfArrayOfSpeciesTag.html">ArrayOfArrayOfSpeciesTag</a>)</td><td>Tag groups for scalar gas absorption.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/ppath_step_agenda.html">ppath_step_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/abs_scalar_gas_agenda.html">abs_scalar_gas_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/iy_clearsky_agenda.html">iy_clearsky_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/iy_space_agenda.html">iy_space_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/surface_prop_agenda.html">surface_prop_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../agendas/iy_cloudbox_agenda.html">iy_cloudbox_agenda</a></td><td>(<a href="../groups/Agenda.html">Agenda</a>)</td><td>See agendas.cc.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/jacobian_quantities.html">jacobian_quantities</a></td><td>(<a href="../groups/ArrayOfRetrievalQuantity.html">ArrayOfRetrievalQuantity</a>)</td><td>The retrieval quantities in the Jacobian matrix.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/jacobian_indices.html">jacobian_indices</a></td><td>(<a href="../groups/ArrayOfArrayOfIndex.html">ArrayOfArrayOfIndex</a>)</td><td>First and last column index in <a href="../variables/jacobian.html">jacobian</a> for each retrieval quantity.</td></tr>
+</table>
+</div>
+<div class="footer">Page generated by arts-2.0.49 - <a href="../doccheck.html">Check docs</a></div>
+
+</body>
+</html>

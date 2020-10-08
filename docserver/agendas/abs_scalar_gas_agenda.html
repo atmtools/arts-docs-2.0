@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>abs_scalar_gas_agenda - ARTS built-in documentation server</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div id="navbar"><div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;>>&nbsp;<a href="../agendas.html">Agendas</a>&nbsp;>>&nbsp;abs_scalar_gas_agenda</div>
+<div class="goto">Go to: <a href="../groups/index.html">Groups</a>&nbsp;-&nbsp;<a href="../variables/index.html">Variables</a>&nbsp;-&nbsp;<a href="../methods/index.html">Methods</a>&nbsp;-&nbsp;<a href="index.html">Agendas</a></div></div>
+<div class="content">
+<h1>ARTS built-in documentation server</h1>
+<h2>Agenda abs_scalar_gas_agenda</h2>
+<pre>
+Calculation of scalar gas absorption.
+
+This agenda calculates absorption coefficients for all gas species
+as a function of the given atmospheric state for one point in the
+atmosphere. The result is returned in <a href="../variables/abs_scalar_gas.html">abs_scalar_gas</a>, the
+atmospheric state has to be specified by <a href="../variables/rte_pressure.html">rte_pressure</a>,
+<a href="../variables/rte_temperature.html">rte_temperature</a>, and <a href="../variables/rte_vmr_list.html">rte_vmr_list</a>.
+
+A mandatory input parameter is f_index, which is used as follows:
+
+1. f_index &lt; 0 : Return absorption for all frequencies (in f_grid).
+
+2. f_index &gt;= 0 : Return absorption for the frequency indicated by
+   f_index. 
+
+The methods inside this agenda may require a lot of additional
+input variables, such as <a href="../variables/f_grid.html">f_grid</a>, <a href="../variables/abs_species.html">abs_species</a>, etc.
+
+</pre>
+
+<p><b>Group: </b><a href="../groups/Agenda.html">Agenda</a>
+<h3>Variables</h3>
+<table>
+<tr><td>OUT</td><td class="right"><a href="../variables/abs_scalar_gas.html">abs_scalar_gas</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>
+Scalar gas absorption coefficients.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/f_index.html">f_index</a></td><td>(<a href="../groups/Index.html">Index</a>)</td><td>
+Frequency index.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/rte_doppler.html">rte_doppler</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>
+A doppler shift for radiative transfer calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/rte_pressure.html">rte_pressure</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>
+A pressure for radiative transfer calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/rte_temperature.html">rte_temperature</a></td><td>(<a href="../groups/Numeric.html">Numeric</a>)</td><td>
+A temperature for radiative transfer calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/rte_vmr_list.html">rte_vmr_list</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>
+A list of VMR values for radiative transfer calculations.</td></tr>
+</table>
+<h3>Specific methods that can generate abs_scalar_gas_agenda</h3>
+<ul>
+<li>none
+
+</ul>
+<h3>Generic and supergeneric methods that can generate abs_scalar_gas_agenda</h3>
+<ul>
+<li><a href="../methods/AgendaCreate.html">AgendaCreate</a>
+<li><a href="../methods/AgendaAppend.html">AgendaAppend</a>
+<li><a href="../methods/AgendaSet.html">AgendaSet</a>
+<li><a href="../methods/Copy.html">Copy</a>
+<li><a href="../methods/ReadXML.html">ReadXML</a>
+<li><a href="../methods/Touch.html">Touch</a>
+
+</ul>
+<h3>Specific methods that require abs_scalar_gas_agenda</h3>
+<ul>
+<li><a href="../methods/abs_fieldCalc.html">abs_fieldCalc</a>
+<li><a href="../methods/doit_i_fieldUpdate1D.html">doit_i_fieldUpdate1D</a>
+<li><a href="../methods/doit_i_fieldUpdateSeq1D.html">doit_i_fieldUpdateSeq1D</a>
+<li><a href="../methods/doit_i_fieldUpdateSeq1DPP.html">doit_i_fieldUpdateSeq1DPP</a>
+<li><a href="../methods/doit_i_fieldUpdateSeq3D.html">doit_i_fieldUpdateSeq3D</a>
+<li><a href="../methods/iyBeerLambertStandardClearsky.html">iyBeerLambertStandardClearsky</a>
+<li><a href="../methods/iyBeerLambertStandardCloudbox.html">iyBeerLambertStandardCloudbox</a>
+<li><a href="../methods/iyEmissionStandardClearsky.html">iyEmissionStandardClearsky</a>
+<li><a href="../methods/iyEmissionStandardClearskyBasic.html">iyEmissionStandardClearskyBasic</a>
+<li><a href="../methods/iyMC.html">iyMC</a>
+<li><a href="../methods/MCGeneral.html">MCGeneral</a>
+<li><a href="../methods/MCIPA.html">MCIPA</a>
+<li><a href="../methods/ScatteringDisort.html">ScatteringDisort</a>
+
+</ul>
+<h3>Generic and supergeneric methods that can use abs_scalar_gas_agenda</h3>
+<ul>
+<li><a href="../methods/AgendaExecute.html">AgendaExecute</a>
+<li><a href="../methods/AgendaAppend.html">AgendaAppend</a>
+<li><a href="../methods/Copy.html">Copy</a>
+<li><a href="../methods/Delete.html">Delete</a>
+<li><a href="../methods/Ignore.html">Ignore</a>
+<li><a href="../methods/Print.html">Print</a>
+<li><a href="../methods/WriteXML.html">WriteXML</a>
+<li><a href="../methods/WriteXMLIndexed.html">WriteXMLIndexed</a>
+
+</ul>
+<h3>Agendas that can generate abs_scalar_gas_agenda</h3>
+<ul>
+<li>none
+
+</ul>
+<h3>Agendas that require abs_scalar_gas_agenda</h3>
+<ul>
+<li>none
+
+</ul>
+</div>
+<div class="footer">Page generated by arts-2.0.49 - <a href="../doccheck.html">Check docs</a></div>
+
+</body>
+</html>

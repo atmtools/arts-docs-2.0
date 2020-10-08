@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>abs_coefCalcSaveMemory - ARTS built-in documentation server</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div id="navbar"><div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;>>&nbsp;<a href="../methods.html">Methods</a>&nbsp;>>&nbsp;abs_coefCalcSaveMemory</div>
+<div class="goto">Go to: <a href="../groups/index.html">Groups</a>&nbsp;-&nbsp;<a href="../variables/index.html">Variables</a>&nbsp;-&nbsp;<a href="index.html">Methods</a>&nbsp;-&nbsp;<a href="../agendas/index.html">Agendas</a></div></div>
+<div class="content">
+<h1>ARTS built-in documentation server</h1>
+<h2>Workspace Method abs_coefCalcSaveMemory</h2>
+<h3>Description</h3>
+<pre>
+Calculate absorption coefficients, trying to conserve memory.
+
+This function calculates only the total absorption (<a href="../variables/abs_coef.html">abs_coef</a>),
+NOT the absorption per tag group (<a href="../variables/abs_coef_per_species.html">abs_coef_per_species</a>).
+
+This means you cannot use it if you want to calculate Jacobians
+later.
+
+The implementation follows abs_coefCalc.
+
+</pre>
+
+<p><b>Authors: </b>Stefan Buehler
+<h3>Synopsis</h3>
+<p><table><tr><td>abs_coefCalcSaveMemory(&nbsp;</td><td><a href="../variables/abs_coef.html">abs_coef</a>, <a href="../variables/abs_species.html">abs_species</a>, <a href="../variables/f_grid.html">f_grid</a>, <a href="../variables/abs_p.html">abs_p</a>, <a href="../variables/abs_t.html">abs_t</a>, <a href="../variables/abs_n2.html">abs_n2</a>, <a href="../variables/abs_h2o.html">abs_h2o</a>, <a href="../variables/abs_vmrs.html">abs_vmrs</a>, <a href="../variables/abs_lines_per_species.html">abs_lines_per_species</a>, <a href="../variables/abs_lineshape.html">abs_lineshape</a>, <a href="../variables/abs_cont_names.html">abs_cont_names</a>, <a href="../variables/abs_cont_models.html">abs_cont_models</a>, <a href="../variables/abs_cont_parameters.html">abs_cont_parameters</a> )</td></tr></table>
+<h3>Variables</h3>
+<table>
+<tr><td>OUT</td><td class="right"><a href="../variables/abs_coef.html">abs_coef</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>The matrix of total absorption coefficients.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_species.html">abs_species</a></td><td>(<a href="../groups/ArrayOfArrayOfSpeciesTag.html">ArrayOfArrayOfSpeciesTag</a>)</td><td>Tag groups for scalar gas absorption.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/f_grid.html">f_grid</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The frequency grid for monochromatic pencil beam calculations.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_p.html">abs_p</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>List of pressures to be used for the calculation of absorption coefficients.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_t.html">abs_t</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>List of temperatures to be used for the calculation of absorption coefficients.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_n2.html">abs_n2</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The total nitrogen profile associated with the pressures in <a href="../variables/abs_p.html">abs_p</a> [-] </td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_h2o.html">abs_h2o</a></td><td>(<a href="../groups/Vector.html">Vector</a>)</td><td>The total water profile associated with the pressures in <a href="../variables/abs_p.html">abs_p</a> [-] </td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_vmrs.html">abs_vmrs</a></td><td>(<a href="../groups/Matrix.html">Matrix</a>)</td><td>The VMRs (unit: absolute number) on the abs_p grid.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_lines_per_species.html">abs_lines_per_species</a></td><td>(<a href="../groups/ArrayOfArrayOfLineRecord.html">ArrayOfArrayOfLineRecord</a>)</td><td>A list of spectral line data for each tag.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_lineshape.html">abs_lineshape</a></td><td>(<a href="../groups/ArrayOfLineshapeSpec.html">ArrayOfLineshapeSpec</a>)</td><td>Lineshape specification: function, norm, cutoff.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_cont_names.html">abs_cont_names</a></td><td>(<a href="../groups/ArrayOfString.html">ArrayOfString</a>)</td><td>Continuum / full model absorption tag names.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_cont_models.html">abs_cont_models</a></td><td>(<a href="../groups/ArrayOfString.html">ArrayOfString</a>)</td><td>Continuum / full model absorption model description parameter.</td></tr>
+<tr><td>IN</td><td class="right"><a href="../variables/abs_cont_parameters.html">abs_cont_parameters</a></td><td>(<a href="../groups/ArrayOfVector.html">ArrayOfVector</a>)</td><td>Continuum model parameters.</td></tr>
+</table>
+</div>
+<div class="footer">Page generated by arts-2.0.49 - <a href="../doccheck.html">Check docs</a></div>
+
+</body>
+</html>
